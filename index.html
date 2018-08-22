@@ -43,26 +43,26 @@
       <li>
         <a href="/games/2048">2048</a>
       </li>
+      <li>
+        <a href="/games/koala">考拉考拉</a>
+      </li>
     </ul>
   </div>
-    <!-- js files -->
-    <!-- <script src="/js/jquery.min.js"></script>
-    <script src="/js/main.js"></script>
-    <script src="/js/scale.fix.js"></script> -->
-    
+<script>
+  var start_x,end_y;
+document.addEventListener("touchstart",function(event){
+    start_y = event.changeTouchs[0].clientY;
+},false);
 
-    
-
- 
-
-
-    
-    
-    
-    <!--kill ie6 -->
-<!--[if IE 6]>
-  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
-<![endif]-->
-
+//取得当前滑动结束值
+document.addEventListener("touchmove",function(event){
+    end_y = event.changeTouchs[0].clientY;
+    //判断如果当前的滚动元素的盒子滑动的距离等于0 并且 滑动的距离大于0
+    if(document.querySelectof(".当前滚动元素").scrollTop == 0 && end_y - start_y > 0){
+        //禁止掉document的事件
+        event.preventDefault();
+    }
+},false);
+</script>
 </body>
 </html>
